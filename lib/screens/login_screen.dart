@@ -1,4 +1,4 @@
-
+import 'package:chat_app/screens/chat_page.dart';
 import 'package:chat_app/screens/sign_up_screen.dart';
 import 'package:chat_app/widget/color.dart';
 import 'package:chat_app/widget/custom_buttom.dart';
@@ -8,6 +8,7 @@ import 'package:chat_app/widget/custom_textfields.dart';
 import 'package:chat_app/widget/custom_title.dart';
 import 'package:chat_app/widget/custom_title_textfield.dart';
 import 'package:chat_app/widget/custom_row_navigate.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 
@@ -35,10 +36,10 @@ class _LoginScreenState extends State<LoginScreen> {
     _emailController.dispose();
     _passwordController.dispose();
   }
-//Future LogIn() async{
-  
-//  await FirebaseAuth.instance.signInWithEmailAndPassword(email: _emailController.text.trim(), password: _passwordController.text.trim());
-// }
+Future LogIn() async{
+  await FirebaseAuth.instance.signInWithEmailAndPassword(email: _emailController.text.trim(), password: _passwordController.text.trim());
+  Navigator.push(context, MaterialPageRoute(builder: (context)=> ChatPage()));
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,14 +68,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     const CustomTitleTextField(text: 'Password'),
                   
                      SizedBox(
-      width: 370,
-      height: 50,
-      child: TextFormField(
-      cursorColor:  ColorsApp.primaryColor,
-     controller: _passwordController,
-      obscureText: _isObscured,
-       decoration: InputDecoration(
-        filled: true,
+                      width: 370,
+                      height: 50,
+                      child: TextFormField(
+                           cursorColor:  ColorsApp.primaryColor,
+                           controller: _passwordController,
+                           obscureText: _isObscured,
+                           decoration: InputDecoration(
+                           filled: true,
         fillColor: const Color.fromARGB(255, 237, 236, 236),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
@@ -97,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     ),
                     const CustomRowRemember(text1: 'Remember me',text2: 'Forgot Password?',),
-                    const CustomButtom(text: 'Log in'),
+                     CustomButtom(text: 'Log in',function: LogIn,),
                     const CustomRowNavigate(
                       text2: 'dont have an account?', 
                       text3: 'Sign Up', 

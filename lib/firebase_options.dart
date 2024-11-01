@@ -46,7 +46,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '474421880721',
     projectId: 'chat-app-19148',
     authDomain: 'chat-app-19148.firebaseapp.com',
-    storageBucket: 'chat-app-19148.appspot.com',
+    storageBucket: 'chat-app-19148.firebasestorage.app',
     measurementId: 'G-EQY1VW7LHK',
   );
 
@@ -55,7 +55,7 @@ class DefaultFirebaseOptions {
     appId: '1:474421880721:android:b862560073c3e782fedc30',
     messagingSenderId: '474421880721',
     projectId: 'chat-app-19148',
-    storageBucket: 'chat-app-19148.appspot.com',
+    storageBucket: 'chat-app-19148.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
@@ -63,7 +63,7 @@ class DefaultFirebaseOptions {
     appId: '1:474421880721:ios:7847169d6b15e699fedc30',
     messagingSenderId: '474421880721',
     projectId: 'chat-app-19148',
-    storageBucket: 'chat-app-19148.appspot.com',
+    storageBucket: 'chat-app-19148.firebasestorage.app',
     iosBundleId: 'com.example.chatApp',
   );
 
@@ -72,7 +72,7 @@ class DefaultFirebaseOptions {
     appId: '1:474421880721:ios:7847169d6b15e699fedc30',
     messagingSenderId: '474421880721',
     projectId: 'chat-app-19148',
-    storageBucket: 'chat-app-19148.appspot.com',
+    storageBucket: 'chat-app-19148.firebasestorage.app',
     iosBundleId: 'com.example.chatApp',
   );
 
@@ -82,7 +82,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '474421880721',
     projectId: 'chat-app-19148',
     authDomain: 'chat-app-19148.firebaseapp.com',
-    storageBucket: 'chat-app-19148.appspot.com',
+    storageBucket: 'chat-app-19148.firebasestorage.app',
     measurementId: 'G-K8G30700TE',
   );
+
 }

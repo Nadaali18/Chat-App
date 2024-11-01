@@ -6,9 +6,11 @@ import 'package:flutter/material.dart';
 class CustomButtom extends StatelessWidget {
   const CustomButtom({
     super.key,
-    required this.text
+    required this.text,
+    required this.function
   });
  final String text;
+ final Future<dynamic>Function() function;
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -16,8 +18,7 @@ class CustomButtom extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: ElevatedButton(
                   onPressed: () {
-                   // LogIn;
-                    
+                   function();
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor:  ColorsApp.primaryColor,
