@@ -17,6 +17,6 @@ final String text;
          padding: const EdgeInsets.only(left: 15,bottom: 10,top: 15),
          child:  CustomText(text,color: ColorsApp.primaryColor,fontSize: 20,fontWeight: FontWeight.bold,),
        ),
-            );
+       );
   }
 }

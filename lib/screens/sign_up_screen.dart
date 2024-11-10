@@ -1,4 +1,3 @@
-
 import 'package:chat_app/screens/chat_page.dart';
 import 'package:chat_app/screens/login_screen.dart';
 import 'package:chat_app/widget/color.dart';
@@ -11,8 +10,6 @@ import 'package:chat_app/widget/custom_title_textfield.dart';
 import 'package:chat_app/widget/custom_row_navigate.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
-
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -74,35 +71,36 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     CustomTextFields(controller: _emailController,text: 'Enter Your Email',),
                     const CustomTitleTextField(text: 'Password'),
                      SizedBox(
-      width: 370,
-      height: 50,
-      child: TextFormField(
-      cursorColor:  ColorsApp.primaryColor,
-     controller: _passwordController,
-      obscureText: _isObscured,
-       decoration: InputDecoration(
-        filled: true,
-        fillColor: const Color.fromARGB(255, 237, 236, 236),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
-        borderSide: const BorderSide(color: Colors.transparent)
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
-          borderSide: const BorderSide(color: ColorsApp.primaryColor)
-        ),
-         hintText:  'Enter Your Password',
-         hintStyle: const TextStyle(color: Colors.grey,fontSize: 15,),
-         suffixIcon: IconButton(
-                      icon: Icon(
-                       _isObscured ? Icons.visibility_off_outlined : Icons.visibility_outlined,
-                       color: ColorsApp.primaryColor
-                     ),
-                      onPressed: _togglePasswordVisibility,
-                     ),
-       ),
-      ),
-    ),
+                      width: 370,
+                      height: 50,
+                      child: TextFormField(
+                              cursorColor:  ColorsApp.primaryColor,
+                              controller: _passwordController,
+                              obscureText: _isObscured,
+                              decoration: InputDecoration(
+                                           filled: true,
+                                           fillColor: const Color.fromARGB(255, 237, 236, 236),
+                                           enabledBorder: OutlineInputBorder(
+                                                            borderRadius: BorderRadius.circular(15),
+                                                            borderSide: const BorderSide(color: Colors.transparent)
+                                                          
+                                                          ),
+                                           focusedBorder: OutlineInputBorder(
+                                           borderRadius: BorderRadius.circular(15),
+                                           borderSide: const BorderSide(color: ColorsApp.primaryColor)
+                                           ),
+                                           hintText:  'Enter Your Password',
+                                           hintStyle: const TextStyle(color: Colors.grey,fontSize: 15,),
+                                           suffixIcon: IconButton(
+                                           icon: Icon(
+                                                 _isObscured ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                                                 color: ColorsApp.primaryColor
+                                                ),
+                                                onPressed: _togglePasswordVisibility,
+                                               ),
+                                            ),
+                                          ),
+                                         ),
                                         ],
                                        ),
                     const CustomRowRemember(text1: 'Remember me'),

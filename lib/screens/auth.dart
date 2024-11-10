@@ -1,6 +1,6 @@
 
+import 'package:chat_app/screens/chat_page.dart';
 import 'package:chat_app/screens/login_screen.dart';
-import 'package:chat_app/screens/sign_up_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -14,9 +14,9 @@ class Auth extends StatelessWidget {
        stream: FirebaseAuth.instance.authStateChanges(),
        builder:( (context,snapshot){
           if(snapshot.hasData){
-            return SignUpScreen();
+            return const ChatPage();
           }else{
-            return LoginScreen();
+            return const LoginScreen();
          }
         })
         ),

@@ -71,39 +71,40 @@ Future LogIn() async{
                       width: 370,
                       height: 50,
                       child: TextFormField(
-                           cursorColor:  ColorsApp.primaryColor,
-                           controller: _passwordController,
-                           obscureText: _isObscured,
-                           decoration: InputDecoration(
-                           filled: true,
-        fillColor: const Color.fromARGB(255, 237, 236, 236),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
-        borderSide: const BorderSide(color: Colors.transparent)
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
-          borderSide: const BorderSide(color: ColorsApp.primaryColor)
-        ),
-         hintText:  'Enter Your Password',
-         hintStyle: const TextStyle(color: Colors.grey,fontSize: 15,),
-         suffixIcon: IconButton(
-                      icon: Icon(
-                       _isObscured ? Icons.visibility_off_outlined : Icons.visibility_outlined,
-                       color: ColorsApp.primaryColor
-                     ),
-                      onPressed: _togglePasswordVisibility,
-                     ),
-       ),
-      ),
-    ),
-                    const CustomRowRemember(text1: 'Remember me',text2: 'Forgot Password?',),
-                     CustomButtom(text: 'Log in',function: LogIn,),
-                    const CustomRowNavigate(
-                      text2: 'dont have an account?', 
-                      text3: 'Sign Up', 
-                      widget1: LoginScreen(),
-                      widget2: SignUpScreen(),),
+                               cursorColor:  ColorsApp.primaryColor,
+                               controller: _passwordController,
+                               obscureText: _isObscured,
+                               decoration: InputDecoration(
+                                            filled: true,
+                                            fillColor: const Color.fromARGB(255, 237, 236, 236),
+                                            enabledBorder: OutlineInputBorder(
+                                                            borderRadius: BorderRadius.circular(15),
+                                                            borderSide: const BorderSide(color: Colors.transparent)
+                                                          ),
+                                            focusedBorder: OutlineInputBorder(
+                                                            borderRadius: BorderRadius.circular(15),
+                                                            borderSide: const BorderSide(color: ColorsApp.primaryColor)
+                                                          ),
+                                            hintText:  'Enter Your Password',
+                                            hintStyle: const TextStyle(color: Colors.grey,fontSize: 15,),
+                                            suffixIcon: IconButton(
+                                                         icon: Icon(
+                                                                _isObscured ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                                                                color: ColorsApp.primaryColor
+                                                        ),
+                                                          onPressed: _togglePasswordVisibility,
+                                                        ),
+                                          ),
+                             ),
+                      ),
+                      const CustomRowRemember(text1: 'Remember me',text2: 'Forgot Password?',),
+                      CustomButtom(text: 'Log in',function: LogIn,),
+                      const CustomRowNavigate(
+                        text2: 'dont have an account?', 
+                        text3: 'Sign Up', 
+                        widget1: LoginScreen(),
+                        widget2: SignUpScreen(),
+                        ),
                   ],
                 ),
               ),
