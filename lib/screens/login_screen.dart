@@ -97,6 +97,7 @@ Future LogIn() async{
                                           ),
                              ),
                       ),
+                      const SizedBox(height: 20,),
                       CustomButtom(text: 'Log in',function: LogIn,),
                       const CustomRowNavigate(
                         text2: 'dont have an account?', 

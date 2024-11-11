@@ -103,7 +103,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                          ),
                                         ],
                                        ),
-                    
+                    const SizedBox(height: 20,),
                     CustomButtom(text: 'Sign up',function: SignUp,),
                     const CustomRowNavigate(
                       text2: 'already have an account?',
