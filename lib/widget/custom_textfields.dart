@@ -1,4 +1,4 @@
-import 'package:chat_app/widget/color.dart';
+import 'package:chat_app/models/color&logo.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFields extends StatelessWidget {

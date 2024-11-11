@@ -1,4 +1,5 @@
 import 'package:chat_app/firebase_options.dart';
+import 'package:chat_app/screens/auth.dart';
 import 'package:chat_app/screens/chat_page.dart';
 import 'package:chat_app/screens/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Chat App',
-     home: ChatPage(),
+     home: Auth(),
     );
   }
 }

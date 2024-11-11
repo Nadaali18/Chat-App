@@ -1,9 +1,8 @@
 import 'package:chat_app/screens/chat_page.dart';
 import 'package:chat_app/screens/sign_up_screen.dart';
-import 'package:chat_app/widget/color.dart';
+import 'package:chat_app/models/color&logo.dart';
 import 'package:chat_app/widget/custom_buttom.dart';
 import 'package:chat_app/widget/custom_row_header.dart';
-import 'package:chat_app/widget/custom_row_remember.dart';
 import 'package:chat_app/widget/custom_textfields.dart';
 import 'package:chat_app/widget/custom_title.dart';
 import 'package:chat_app/widget/custom_title_textfield.dart';
@@ -38,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 Future LogIn() async{
   await FirebaseAuth.instance.signInWithEmailAndPassword(email: _emailController.text.trim(), password: _passwordController.text.trim());
-  Navigator.push(context, MaterialPageRoute(builder: (context)=> ChatPage()));
+  Navigator.push(context, MaterialPageRoute(builder: (context)=> ChatPage(email: _emailController.text.trim(),)));
 }
   @override
   Widget build(BuildContext context) {
@@ -63,6 +62,7 @@ Future LogIn() async{
                 child: Column(
                   children: [
                     const CustomTitle(text: 'Log In'),
+                    const SizedBox(height: 20,),
                     const CustomTitleTextField(text: 'Email'),
                     CustomTextFields(controller: _emailController,text: 'Enter Your Email',),
                     const CustomTitleTextField(text: 'Password'),
@@ -97,7 +97,6 @@ Future LogIn() async{
                                           ),
                              ),
                       ),
-                      const CustomRowRemember(text1: 'Remember me',text2: 'Forgot Password?',),
                       CustomButtom(text: 'Log in',function: LogIn,),
                       const CustomRowNavigate(
                         text2: 'dont have an account?', 

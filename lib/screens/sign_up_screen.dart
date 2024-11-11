@@ -1,9 +1,8 @@
 import 'package:chat_app/screens/chat_page.dart';
 import 'package:chat_app/screens/login_screen.dart';
-import 'package:chat_app/widget/color.dart';
+import 'package:chat_app/models/color&logo.dart';
 import 'package:chat_app/widget/custom_buttom.dart';
 import 'package:chat_app/widget/custom_row_header.dart';
-import 'package:chat_app/widget/custom_row_remember.dart';
 import 'package:chat_app/widget/custom_textfields.dart';
 import 'package:chat_app/widget/custom_title.dart';
 import 'package:chat_app/widget/custom_title_textfield.dart';
@@ -37,7 +36,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Future<dynamic> SignUp()  async{
      UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: _emailController.text.trim(), password: _passwordController.text.trim());
      print("Account created: ${userCredential.user?.email}");
-     Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatPage()));
+     Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatPage(email: _emailController.text.trim(),)));
   }
   @override
   Widget build(BuildContext context) {
@@ -63,6 +62,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 child: Column(
                   children: [
                     const CustomTitle(text: 'Sign Up',),
+                    const SizedBox(height: 20,),
                     Column(
                     children: [
                     const CustomTitleTextField(text: 'UserName'),
@@ -103,7 +103,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                          ),
                                         ],
                                        ),
-                    const CustomRowRemember(text1: 'Remember me'),
+                    
                     CustomButtom(text: 'Sign up',function: SignUp,),
                     const CustomRowNavigate(
                       text2: 'already have an account?',

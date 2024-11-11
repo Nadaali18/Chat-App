@@ -14,7 +14,7 @@ class Auth extends StatelessWidget {
        stream: FirebaseAuth.instance.authStateChanges(),
        builder:( (context,snapshot){
           if(snapshot.hasData){
-            return const ChatPage();
+            return ChatPage(email: snapshot.data!.email);
           }else{
             return const LoginScreen();
          }
