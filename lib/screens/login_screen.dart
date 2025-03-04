@@ -66,7 +66,6 @@ Future LogIn() async{
                     const CustomTitleTextField(text: 'Email'),
                     CustomTextFields(controller: _emailController,text: 'Enter Your Email',),
                     const CustomTitleTextField(text: 'Password'),
-                  
                      SizedBox(
                       width: 370,
                       height: 50,
