@@ -16,9 +16,9 @@ class Auth extends StatelessWidget {
           if(snapshot.hasData){
             return ChatPage(email: snapshot.data!.email);
           }else{
-            return const LoginScreen();
+            return LoginScreen();
          }
-        })
+        }),
         ),
     );
   }
