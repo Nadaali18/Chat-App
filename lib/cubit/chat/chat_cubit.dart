@@ -13,13 +13,16 @@ class ChatCubit extends Cubit<ChatState> {
    
 
   void sendMessages({required String email,required String message}){
-    messages.add({'message':message,'createdAt':DateTime.now(),'id':email,});
-    emit(ChatSuccess());   
+    messages.add({'message':message,'createdAt':DateTime.now(),'id':email,});  
   }
 
   void getMessages(){
     messages.orderBy('createdAt').snapshots().listen((event){
-        emit(ChatSuccess());
+      List<MessageModel> messagesList=[];
+      for(var doc in event.docs){
+         messagesList.add(MessageModel.fromJson(doc));
+      }
+        emit(ChatSuccess(messages: messagesList));
     });
   }
 }
