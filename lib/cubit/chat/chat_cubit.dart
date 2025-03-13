@@ -5,5 +5,7 @@ part 'chat_state.dart';
 
 class ChatCubit extends Cubit<ChatState> {
   ChatCubit() : super(ChatInitial());
-  
+  void sendMessage({required String email,required String message}){
+    
+  }
 }
