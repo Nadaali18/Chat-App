@@ -13,8 +13,15 @@ Future LogIn({required String email,required String password}) async{
   try{
   await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
   emit(LoginSuccess());
-  }catch(e){
-    emit(LoginFailure());
+  }on FirebaseAuthException catch(e){
+     if(e.code == 'user-not-found'){
+      emit(LoginFailure(errorMessage: 'User not Found'));
+     }else if (e.code == 'wrong-password'){
+      emit(LoginFailure(errorMessage: 'Wrong Password'));
+     }
+  }
+  catch(e){
+    emit(LoginFailure(errorMessage: 'Something went wrong'));
   }
 }
   

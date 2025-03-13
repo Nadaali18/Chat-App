@@ -2,6 +2,7 @@ import 'package:chat_app/cubit/login_cubit.dart';
 import 'package:chat_app/screens/chat_page.dart';
 import 'package:chat_app/screens/sign_up_screen.dart';
 import 'package:chat_app/models/color&logo.dart';
+import 'package:chat_app/widget/custom_buttom.dart';
 import 'package:chat_app/widget/custom_row_header.dart';
 import 'package:chat_app/widget/custom_text.dart';
 import 'package:chat_app/widget/custom_textfields.dart';
@@ -19,17 +20,17 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<LoginCubit, LoginState>(
+    return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
            if(state is LoginSuccess ){
             Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatPage(email: emailController.text)));
            }else if(state is LoginLoading){
             Center(child: CircularProgressIndicator(),);
            }else if(state is LoginFailure){
-            SnackBar(content: CustomText('somthing went wrong'));
+            SnackBar(content: CustomText(state.errorMessage));
            }
       },
-      child: Scaffold(
+      builder:(context,state) => Scaffold(
         backgroundColor: ColorsApp.primaryColor,
         body: Column(
           children: [
@@ -73,7 +74,9 @@ class LoginScreen extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      //CustomButtom(text: 'Log in',function: ,),
+                      CustomButtom(text: 'Log in',function:() async{
+                         BlocProvider.of<LoginCubit>(context).LogIn(email: emailController.text, password: passwordController.text);
+                      },),
                       CustomRowNavigate(
                         text2: 'dont have an account?',
                         text3: 'Sign Up',
