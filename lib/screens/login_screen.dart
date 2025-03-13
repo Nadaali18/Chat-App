@@ -25,7 +25,9 @@ class LoginScreen extends StatelessWidget {
            if(state is LoginSuccess ){
             Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatPage(email: emailController.text)));
            }else if(state is LoginLoading){
-            Center(child: CircularProgressIndicator(),);
+            Center(child: CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(ColorsApp.primaryColor),
+            ),);
            }else if(state is LoginFailure){
             SnackBar(content: CustomText(state.errorMessage));
            }

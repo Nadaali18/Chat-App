@@ -26,7 +26,8 @@ class SignUpScreen extends StatelessWidget {
         if(state is RegisterSuccess ){
             Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatPage(email: emailController.text)));
            }else if(state is RegisterLoading){
-            Center(child: CircularProgressIndicator(),);
+            Center(child: CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(ColorsApp.primaryColor),),);
            }else if(state is RegisterFailure){
             SnackBar(content: CustomText(state.errorMessage));
            }
