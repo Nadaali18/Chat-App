@@ -1,4 +1,5 @@
-import 'package:chat_app/cubit/login_cubit.dart';
+import 'package:chat_app/cubit/login/login_cubit.dart';
+import 'package:chat_app/cubit/register/register_cubit.dart';
 import 'package:chat_app/firebase_options.dart';
 import 'package:chat_app/screens/auth.dart';
 import 'package:device_preview/device_preview.dart';
@@ -25,16 +26,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-        create: (context) => LoginCubit(),
-        child: MaterialApp(
-          useInheritedMediaQuery: true,
-          locale: DevicePreview.locale(context),
-          builder: DevicePreview.appBuilder,
-          debugShowCheckedModeBanner: false,
-          title: 'Chat App',
-          home: Auth(),
-        ),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context)=>LoginCubit()),
+        BlocProvider(create: (contex)=>RegisterCubit()),
+      ],
+      child: MaterialApp(
+        locale: DevicePreview.locale(context),
+        builder: DevicePreview.appBuilder,
+        debugShowCheckedModeBanner: false,
+        title: 'Chat App',
+        home: Auth(),
+      ),
     );
   }
 }

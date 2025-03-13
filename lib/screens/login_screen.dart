@@ -1,4 +1,4 @@
-import 'package:chat_app/cubit/login_cubit.dart';
+import 'package:chat_app/cubit/login/login_cubit.dart';
 import 'package:chat_app/screens/chat_page.dart';
 import 'package:chat_app/screens/sign_up_screen.dart';
 import 'package:chat_app/models/color&logo.dart';
