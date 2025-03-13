@@ -1,5 +1,4 @@
 import 'package:chat_app/cubit/chat/chat_cubit.dart';
-import 'package:chat_app/models/message_model.dart';
 import 'package:chat_app/widget/chat_buble_friend.dart';
 import 'package:chat_app/widget/chat_buble_user.dart';
 import 'package:chat_app/models/color&logo.dart';
@@ -10,7 +9,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class ChatPage extends StatelessWidget {
   ChatPage({super.key, required this.email});
 
- List<MessageModel> messagesList = [];
   final String? email;
   final TextEditingController controller = TextEditingController();
   final scrollController = ScrollController();
@@ -41,13 +39,9 @@ class ChatPage extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            child: BlocConsumer<ChatCubit, ChatState>(
-              listener: (context, state) {
-                if(state is ChatSuccess){
-                  messagesList = state.messages;
-                }
-              },
+            child: BlocBuilder<ChatCubit, ChatState>(
               builder: (context, state) {
+                  var messagesList = BlocProvider.of<ChatCubit>(context).messagesList;
                 return ListView.builder(
                     controller: scrollController,
                     itemCount: messagesList.length,
