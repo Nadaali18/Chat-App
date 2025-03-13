@@ -14,10 +14,7 @@ final String? email;
 }
 
 class _ChatPageState extends State<ChatPage> {
-   
-   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-   CollectionReference messages = FirebaseFirestore.instance.collection('messages');
 
    TextEditingController controller = TextEditingController();
    final _controller = ScrollController();
@@ -27,14 +24,9 @@ class _ChatPageState extends State<ChatPage> {
 
     return StreamBuilder<QuerySnapshot>(
 
-      stream: messages.orderBy('createdAt').snapshots(), 
-
+      stream: 
       builder: (context,snapshot){
-      if(snapshot.hasData){
-       List<MessageModel> messagesList =[];
-       for(int i=0;i<snapshot.data!.docs.length;i++){
-        messagesList.add(MessageModel.fromJson(snapshot.data!.docs[i]));
-       }
+      
 
       return Scaffold(
       appBar: AppBar(
@@ -77,11 +69,7 @@ class _ChatPageState extends State<ChatPage> {
            child: TextField(
             controller: controller,
             onSubmitted: (data){
-              messages.add({
-                'message':data,
-                'createdAt':DateTime.now(),
-                'id': widget.email,
-              });
+              
               controller.clear();
               _controller.jumpTo(
                 _controller.position.maxScrollExtent, 
@@ -122,18 +110,6 @@ class _ChatPageState extends State<ChatPage> {
         ,
       ),    
       );
-      }else{
-       return Scaffold(
-        backgroundColor: Colors.white,
-        body: Container(
-          height: double.infinity,width: double.infinity,
-          color: ColorsApp.primaryColor.withOpacity(0.2),
-          child:const Center(
-            child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(ColorsApp.primaryColor),
-            ),
-          ),
-        ));
       }
       }
       );
